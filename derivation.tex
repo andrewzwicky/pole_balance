@@ -1,0 +1,113 @@
+\documentclass[fleqn]{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+
+\begin{equation}
+    I_{mass} = m \cdot l^2
+\end{equation}
+
+\begin{equation}
+L=K-U
+\end{equation}
+
+%kinetic energy
+\begin{equation}
+K = \frac{1}{2}I_1\omega_1^2 + \frac{1}{2}I_2\omega_2^2+\frac{1}{2}m_2\omega_1
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+a_{ijk} &= \frac {Pr(M_{I} =2  \&  M_J=1 \& M_K =1 | I=i , J=j , K=k)}{Pr (M_I =1 \& M_J =1 \& M_K=1 | I=i , J=j)}\
+        &= \frac {\mu_{ijk211}}{\mu_{ijk111}}\
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+K = \frac{1}{2}I_1\dot{\theta_1}^2 + \frac{1}{2}I_2(\dot{\theta_1}+\dot{\theta_2})^2+\frac{1}{2}m_2\dot{\theta_1}
+\end{equation}
+
+\begin{equation}
+K = \frac{m_1l_1^2}{2}\dot{\theta_1}^2 + \frac{m_2l_2^2}{2}(\dot{\theta_1}+\dot{\theta_2})^2+\frac{1}{2}m_2\dot{\theta_1}
+\end{equation}
+
+\begin{equation}
+K = \frac{1}{2}(m_1l_1^2\dot{\theta_1}^2 + m_2l_2^2(\dot{\theta_1}+\dot{\theta_2})^2+m_2\dot{\theta_1})
+\end{equation}
+
+\begin{equation}
+K = \frac{1}{2}(m_1l_1^2\dot{\theta_1}^2 + m_2l_2^2(\dot{\theta_1}^2+2\dot{\theta_1}\dot{\theta_2}+\dot{\theta_2}^2)+m_2\dot{\theta_1})
+\end{equation}
+
+\begin{equation}
+K = \frac{1}{2}((m_1l_1^2+m_2l_2^2)\dot{\theta_1}^2 + m_2l_2^2\dot{\theta_2}^2+2m_2l_2^2\dot{\theta_1}\dot{\theta_2}+m_2\dot{\theta_1})
+\end{equation}
+
+\begin{equation}
+K = \frac{m_1l_1^2+m_2l_2^2}{2}\dot{\theta_1}^2 + \frac{m_2l_2^2}{2}\dot{\theta_2}^2+m_2l_2^2\dot{\theta_1}\dot{\theta_2}+\frac{m_2}{2}\dot{\theta_1}
+\end{equation}
+
+%potential energy
+\begin{equation}
+U = m_1gl_1\sin(\theta_1) + m_2g(l_1\sin(\theta_1)+l_2\sin(\theta_1+\theta_2))
+\end{equation}
+
+\begin{equation}
+U = m_1gl_1\sin(\theta_1) + m_2gl_1\sin(\theta_1)+m_2gl_2\sin(\theta_1+\theta_2)
+\end{equation}
+
+\begin{equation}
+U = (m_1+m_2)gl_1\sin(\theta_1)+m_2gl_2\sin(\theta_1+\theta_2)
+\end{equation}
+
+%lagrangian
+\begin{equation}
+\begin{split}
+L = (\frac{m_1l_1^2+m_2l_2^2}{2}\dot{\theta_1}^2 + \frac{m_2l_2^2}{2}\dot{\theta_2}^2+m_2l_2^2\dot{\theta_1}\dot{\theta_2}+\frac{m_2}{2}\dot{\theta_1}) \\
+- ((m_1+m_2)gl_1\sin(\theta_1)+m_2gl_2\sin(\theta_1+\theta_2))
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+L = \frac{m_1l_1^2+m_2l_2^2}{2}\dot{\theta_1}^2 + \frac{m_2l_2^2}{2}\dot{\theta_2}^2+m_2l_2^2\dot{\theta_1}\dot{\theta_2}+\frac{m_2}{2}\dot{\theta_1} \\
+- (m_1+m_2)gl_1\sin(\theta_1)-m_2gl_2\sin(\theta_1+\theta_2)
+\end{split}
+\end{equation}
+
+%derivative theta_1
+\begin{equation}
+\frac{\partial{L}}{\partial{\dot{\theta_1}}} = (m_1l_1^2+m_2l_2^2)\dot{\theta_1} + m_2l_2^2\dot{\theta_2}+\frac{m_2}{2}
+\end{equation}
+
+\begin{equation}
+\frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_1}}}\right) = (m_1l_1^2+m_2l_2^2)\ddot{\theta_1} + m_2l_2^2\ddot{\theta_2}
+\end{equation}
+
+\begin{equation}
+\frac{\partial{L}}{\partial{\theta_1}} = - (m_1+m_2)gl_1\cos(\theta_1)-m_2gl_2\cos(\theta_1+\theta_2)
+\end{equation}
+
+\begin{equation}
+\frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_1}}}\right) - \frac{\partial{L}}{\partial{\theta_1}} = (m_1l_1^2+m_2l_2^2)\ddot{\theta_1} + m_2l_2^2\ddot{\theta_2} + (m_1+m_2)gl_1\cos(\theta_1)+m_2gl_2\cos(\theta_1+\theta_2)
+\end{equation}
+
+%derivative theta_1
+\begin{equation}
+\frac{\partial{L}}{\partial{\dot{\theta_2}}} = m_2l_2^2\dot{\theta_2}+m_2l_2^2\dot{\theta_1}
+\end{equation}
+
+\begin{equation}
+\frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_2}}}\right) = m_2l_2^2\ddot{\theta_2}+m_2l_2^2\ddot{\theta_1}
+\end{equation}
+
+\begin{equation}
+\frac{\partial{L}}{\partial{\theta_2}} = -m_2gl_2\cos(\theta_1+\theta_2)
+\end{equation}
+
+\begin{equation}
+\frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_2}}}\right) - \frac{\partial{L}}{\partial{\theta_2}} = m_2l_2^2\ddot{\theta_2}+m_2l_2^2\ddot{\theta_1} + m_2gl_2\cos(\theta_1+\theta_2)
+\end{equation}
+
+\end{document}
