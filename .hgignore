@@ -1,2 +1,6 @@
 syntax: glob
 .idea/**
+*.aux
+*.log
+*.json
+*.pdf

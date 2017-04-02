@@ -7,7 +7,7 @@ import matplotlib.animation as animation
 G = 9.8  # acceleration due to gravity, in m/s^2
 L = 1.0  # length of pendulum 1 in m
 M = 1.0  # mass of pendulum 1 in kg
-I = (M * L * L) / 3  # moment of inertia, fixed at end
+I = (M * L * L) / 3  # moment of inertia in kg*m^2 , fixed at end
 
 
 def single_pendulum_deriv(this_state, time_step, torque_i, damping_i):
@@ -25,13 +25,13 @@ t = np.arange(0.0, 20, dt)
 
 # th is the initial angle (degrees)
 # w is the initial angular velocity (degrees per second)
-θ_initial = 270.0
+θ_initial = 0.0
 ω_initial = 0.0
 
 initial_state = np.radians([θ_initial, ω_initial])
 
-torque = 0
-damping = 0
+torque = G/4  # torque in Nm
+damping = 5
 
 # integrate your ODE using scipy.integrate.
 pos = integrate.odeint(single_pendulum_deriv, initial_state, t, args=(torque, damping))
