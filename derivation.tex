@@ -8,96 +8,49 @@ bottom=3cm,% bottom margin
 a0paper% other options: a0paper, a1paper, a2paper, a3paper, a4paper, a5paper, a6paper, and many more.
 ]{geometry}
 
+
 \usepackage{amsmath}
 \begin{document}
-\begin{flalign}
-    K &= \tfrac{1}{2}I_1\omega_1^2 + \tfrac{1}{2}I_2\omega_2^2 + \tfrac{1}{2}m_2v_1^2 & \\
-    &= \tfrac{1}{2}I_1\dot{\theta_1}^2 + \tfrac{1}{2}I_2(\dot{\theta_1}+\dot{\theta_2})^2+\tfrac{1}{2}m_2(l_1\dot{\theta_1})^2 & \\
-    &= \tfrac{1}{2}I_1\dot{\theta_1}^2 + \tfrac{1}{2}I_2(\dot{\theta_1}+\dot{\theta_2})^2+\tfrac{1}{2}m_2l_1^2\dot{\theta_1}^2 & \\
-    &= \tfrac{1}{2}m_1l_1^2\dot{\theta_1}^2 + \tfrac{1}{2}m_2l_2^2(\dot{\theta_1}+\dot{\theta_2})^2+\tfrac{1}{2}m_2l_1^2\dot{\theta_1}^2 & \\
-    &= \tfrac{1}{2}m_1l_1^2\dot{\theta_1}^2 + \tfrac{1}{2}m_2l_2^2(\dot{\theta_1}^2+2\dot{\theta_1}\dot{\theta_2}+\dot{\theta_2}^2)+\tfrac{1}{2}m_2l_1^2\dot{\theta_1}^2 & \\
-    &= \tfrac{1}{2}m_1l_1^2\dot{\theta_1}^2 + \tfrac{1}{2}m_2l_2^2\dot{\theta_1}^2+m_2l_2^2\dot{\theta_1}\dot{\theta_2}+\tfrac{1}{2}m_2l_2^2\dot{\theta_2}^2+\tfrac{1}{2}m_2l_1^2\dot{\theta_1}^2 & \\
-    &= \tfrac{1}{2}(m_1l_1^2 + m_2l_2^2 + m_2l_1^2)\dot{\theta_1}^2 + m_2l_2^2\dot{\theta_1}\dot{\theta_2}+\tfrac{1}{2}m_2l_2^2\dot{\theta_2}^2& \\ \nonumber
-    & \text{if } \dot{\theta_1} = 0 & \\
-    K &= \tfrac{1}{2}m_2l_2^2\dot{\theta_2}^2 & \\ \nonumber
-    & \text{if } \dot{\theta_2} = 0 & \\
-    K &= \tfrac{1}{2}(m_1l_1^2 + m_2l_2^2 + m_2l_1^2)\dot{\theta_1}^2 & \\
-    &= \tfrac{1}{2}m_1l_1^2\dot{\theta_1}^2 + \tfrac{1}{2}m_2(l_2^2 + l_1^2)\dot{\theta_1}^2 & \\
-\end{flalign}
 
 \begin{flalign}
-    x_1 &= r_1\cos{(\theta_1)} & \\
-    y_1 &= r_1\sin{(\theta_1)} & \\
-    x_2 &= l_1\cos{(\theta_1)} + r_2\cos{(\theta_1 + \theta_2)} & \\
-    y_2 &= l_1\sin{(\theta_1)} + r_2\sin{(\theta_1 + \theta_2)} & \\
-    \dot{x_1} &= -r_1\sin{(\theta_1)}\dot{\theta_1} & \\
-    \dot{y_1} &= r_1\cos{(\theta_1)}\dot{\theta_1} & \\
-    \dot{x_2} &= -l_1\sin{(\theta_1)}\dot{\theta_1} -(\dot{\theta_1} + \dot{\theta_2})r_2\sin{(\theta_1 + \theta_2)} & \\
-              &= -l_1\sin{(\theta_1)}\dot{\theta_1} -r_2\sin{(\theta_1 + \theta_2)}\dot{\theta_1} - r_2\sin{(\theta_1 + \theta_2)}\dot{\theta_2} & \\
-              &= -(l_1\sin{(\theta_1)}+r_2\sin{(\theta_1 + \theta_2)})\dot{\theta_1} - r_2\sin{(\theta_1 + \theta_2)}\dot{\theta_2} & \\
-    \dot{y_2} &= l_1\cos{(\theta_1)}\dot{\theta_1} + (\dot{\theta_1} + \dot{\theta_2})r_2\cos{(\theta_1 + \theta_2)} & \\
-              &= l_1\cos{(\theta_1)}\dot{\theta_1} + r_2\cos{(\theta_1 + \theta_2)}\dot{\theta_1} + r_2\cos{(\theta_1 + \theta_2)}\dot{\theta_2} & \\
-              &= (l_1\cos{(\theta_1)}+r_2\cos{(\theta_1 + \theta_2)})\dot{\theta_1} + r_2\cos{(\theta_1 + \theta_2)}\dot{\theta_2} & \\
+x_1=& r_{1} \cos{\left (\theta_1 \right )} & \\
+y_1=& r_{1} \sin{\left (\theta_1 \right )} & \\
+x_2=& l_{1} \cos{\left (\theta_1 \right )} + r_{2} \cos{\left (\theta_1 + \theta_2 \right )} & \\
+y_2=& l_{1} \sin{\left (\theta_1 \right )} + r_{2} \sin{\left (\theta_1 + \theta_2 \right )} & \\
+\dot{x_1}=& - r_{1} \sin{\left (\theta_1 \right )} \dot{\theta_1} & \\
+\dot{y_1}=& r_{1} \cos{\left (\theta_1 \right )} \dot{\theta_1} & \\
+\dot{x_2}=& - l_{1} \sin{\left (\theta_1 \right )} \dot{\theta_1} - r_{2} \left(\dot{\theta_1} + \dot{\theta_2}\right) \sin{\left (\theta_1 + \theta_2 \right )} & \\
+\dot{y_2}=& l_{1} \cos{\left (\theta_1 \right )} \dot{\theta_1} + r_{2} \left(\dot{\theta_1} + \dot{\theta_2}\right) \cos{\left (\theta_1 + \theta_2 \right )} & \\
 \end{flalign}
 
 \begin{flalign}
 K =& \tfrac{1}{2}I_1\omega_1^2 + \tfrac{1}{2}m_1v_1^2 + \tfrac{1}{2}I_2\omega_2^2 + \tfrac{1}{2}m_2v_2^2 & \\
-=& \tfrac{1}{2}I_1\omega_1^2 + \tfrac{1}{2}m_1(\dot{x_1}+\dot{y_1})^2 + \tfrac{1}{2}I_2\omega_2^2 + \tfrac{1}{2}m_2(\dot{x_2}+\dot{y_2})^2 & \\
-=& \tfrac{1}{2}I_1\dot{\theta}_1^2 + \tfrac{1}{2}m_1(\dot{x_1}+\dot{y_1})^2 + \tfrac{1}{2}I_2\dot{\theta}_2^2 + \tfrac{1}{2}m_2(\dot{x_2}+\dot{y_2})^2 & \\
-=& \frac{I_{1}}{2} \frac{d}{d t} \operatorname{T_{1}}{\left (t \right )}^{2} + \frac{I_{2}}{2} \frac{d}{d t} \operatorname{T_{2}}{\left (t \right )}^{2} + \frac{m_{1} r_{1}^{2}}{2} \frac{d}{d t} \operatorname{T_{1}}{\left (t \right )}^{2} + \frac{m_{2}}{2} \left(l_{1}^{2} \frac{d}{d t} \operatorname{T_{1}}{\left (t \right )}^{2} + 2 l_{1} r_{2} \cos{\left (\operatorname{T_{2}}{\left (t \right )} \right )} \frac{d}{d t} \operatorname{T_{1}}{\left (t \right )}^{2} + 2 l_{1} r_{2} \cos{\left (\operatorname{T_{2}}{\left (t \right )} \right )} \frac{d}{d t} \operatorname{T_{1}}{\left (t \right )} \frac{d}{d t} \operatorname{T_{2}}{\left (t \right )} + r_{2}^{2} \frac{d}{d t} \operatorname{T_{1}}{\left (t \right )}^{2} + 2 r_{2}^{2} \frac{d}{d t} \operatorname{T_{1}}{\left (t \right )} \frac{d}{d t} \operatorname{T_{2}}{\left (t \right )} + r_{2}^{2} \frac{d}{d t} \operatorname{T_{2}}{\left (t \right )}^{2}\right)\\
-=& \frac{1}{2} \left(I_{1} \dot{\theta_1}^{2} + I_{2} \dot{\theta_2}^{2} + l_{1}^{2} m_{2} \sin^{2}{\left (\theta_1 \right )} \dot{\theta_1}^{2} + l_{1}^{2} m_{2} \cos^{2}{\left (\theta_1 \right )} \dot{\theta_1}^{2} + 2 l_{1} m_{2} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \sin{\left (\theta_1 \right )} \dot{\theta_1}^{2} + 2 l_{1} m_{2} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \sin{\left (\theta_1 \right )} \dot{\theta_1} \dot{\theta_2} + 2 l_{1} m_{2} r_{2} \cos{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \dot{\theta_1}^{2} + 2 l_{1} m_{2} r_{2} \cos{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \dot{\theta_1} \dot{\theta_2} + m_{1} r_{1}^{2} \sin^{2}{\left (\theta_1 \right )} \dot{\theta_1}^{2} + m_{1} r_{1}^{2} \cos^{2}{\left (\theta_1 \right )} \dot{\theta_1}^{2} + m_{2} r_{2}^{2} \sin^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1}^{2} + 2 m_{2} r_{2}^{2} \sin^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1} \dot{\theta_2} + m_{2} r_{2}^{2} \sin^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_2}^{2} + m_{2} r_{2}^{2} \cos^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1}^{2} + 2 m_{2} r_{2}^{2} \cos^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1} \dot{\theta_2} + m_{2} r_{2}^{2} \cos^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_2}^{2}\right)\\
-=& - \frac{1}{2} \left(- I_{1} \dot{\theta_1}^{2} - I_{2} \dot{\theta_2}^{2} + 2 g l_{1} m_{1} \sin{\left (\theta_1 \right )} - 2 g l_{1} m_{2} \sin{\left (\theta_1 \right )} - 2 g l_{2} m_{2} \sin{\left (\theta_1 + \theta_2 \right )} - l_{1}^{2} m_{2} \sin^{2}{\left (\theta_1 \right )} \dot{\theta_1}^{2} - l_{1}^{2} m_{2} \cos^{2}{\left (\theta_1 \right )} \dot{\theta_1}^{2} - 2 l_{1} m_{2} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \sin{\left (\theta_1 \right )} \dot{\theta_1}^{2} - 2 l_{1} m_{2} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \sin{\left (\theta_1 \right )} \dot{\theta_1} \dot{\theta_2} - 2 l_{1} m_{2} r_{2} \cos{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \dot{\theta_1}^{2} - 2 l_{1} m_{2} r_{2} \cos{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \dot{\theta_1} \dot{\theta_2} - m_{1} r_{1}^{2} \sin^{2}{\left (\theta_1 \right )} \dot{\theta_1}^{2} - m_{1} r_{1}^{2} \cos^{2}{\left (\theta_1 \right )} \dot{\theta_1}^{2} - m_{2} r_{2}^{2} \sin^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1}^{2} - 2 m_{2} r_{2}^{2} \sin^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1} \dot{\theta_2} - m_{2} r_{2}^{2} \sin^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_2}^{2} - m_{2} r_{2}^{2} \cos^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1}^{2} - 2 m_{2} r_{2}^{2} \cos^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1} \dot{\theta_2} - m_{2} r_{2}^{2} \cos^{2}{\left (\theta_1 + \theta_2 \right )} \dot{\theta_2}^{2}\right)\\
-=& g \left(- l_{1} m_{1} \cos{\left (\theta_1 \right )} + l_{1} m_{2} \cos{\left (\theta_1 \right )} + l_{2} m_{2} \cos{\left (\theta_1 + \theta_2 \right )}\right)\\
-=& m_{2} \left(g l_{2} \cos{\left (\theta_1 + \theta_2 \right )} - l_{1} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \dot{\theta_1}^{2} - l_{1} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \dot{\theta_1} \dot{\theta_2} + l_{1} r_{2} \sin{\left (\theta_1 \right )} \cos{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1}^{2} + l_{1} r_{2} \sin{\left (\theta_1 \right )} \cos{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1} \dot{\theta_2}\right) \\
-=& I_{1} \ddot{\theta_1} + l_{1}^{2} m_{2} \sin^{2}{\left (\theta_1 \right )} \ddot{\theta_1} + l_{1}^{2} m_{2} \cos^{2}{\left (\theta_1 \right )} \ddot{\theta_1} + 2 l_{1} m_{2} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \sin{\left (\theta_1 \right )} \ddot{\theta_1} + l_{1} m_{2} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \sin{\left (\theta_1 \right )} \ddot{\theta_2} - 2 l_{1} m_{2} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \dot{\theta_1} \dot{\theta_2} - l_{1} m_{2} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \dot{\theta_2}^{2} + 2 l_{1} m_{2} r_{2} \sin{\left (\theta_1 \right )} \cos{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1} \dot{\theta_2} + l_{1} m_{2} r_{2} \sin{\left (\theta_1 \right )} \cos{\left (\theta_1 + \theta_2 \right )} \dot{\theta_2}^{2} + 2 l_{1} m_{2} r_{2} \cos{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \ddot{\theta_1} + l_{1} m_{2} r_{2} \cos{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \ddot{\theta_2} + m_{1} r_{1}^{2} \sin^{2}{\left (\theta_1 \right )} \ddot{\theta_1} + m_{1} r_{1}^{2} \cos^{2}{\left (\theta_1 \right )} \ddot{\theta_1} + m_{2} r_{2}^{2} \sin^{2}{\left (\theta_1 + \theta_2 \right )} \ddot{\theta_1} + m_{2} r_{2}^{2} \sin^{2}{\left (\theta_1 + \theta_2 \right )} \ddot{\theta_2} + m_{2} r_{2}^{2} \cos^{2}{\left (\theta_1 + \theta_2 \right )} \ddot{\theta_1} + m_{2} r_{2}^{2} \cos^{2}{\left (\theta_1 + \theta_2 \right )} \ddot{\theta_2}\\ \nonumber
-=& I_{2} \ddot{\theta_2} + l_{1} m_{2} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \sin{\left (\theta_1 \right )} \ddot{\theta_1} - l_{1} m_{2} r_{2} \sin{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \dot{\theta_1} \dot{\theta_2} \\ \nonumber
-& + l_{1} m_{2} r_{2} \sin{\left (\theta_1 \right )} \cos{\left (\theta_1 + \theta_2 \right )} \dot{\theta_1} \dot{\theta_2} + l_{1} m_{2} r_{2} \cos{\left (\theta_1 + \theta_2 \right )} \cos{\left (\theta_1 \right )} \ddot{\theta_1} \\ \nonumber
-& + m_{2} r_{2}^{2} \sin^{2}{\left (\theta_1 + \theta_2 \right )} \ddot{\theta_1} + m_{2} r_{2}^{2} \sin^{2}{\left (\theta_1 + \theta_2 \right )} \ddot{\theta_2} + m_{2} r_{2}^{2} \cos^{2}{\left (\theta_1 + \theta_2 \right )} \ddot{\theta_1} \\
-& + m_{2} r_{2}^{2} \cos^{2}{\left (\theta_1 + \theta_2 \right )} \ddot{\theta_2} \\
-=& I_{2} \ddot{\theta_2} + \frac{m_{2}}{2} \left(- 2 r_{2} \left(- l_{1} \sin{\left (\theta_1 \right )} \dot{\theta_1} - r_{2} \left(\dot{\theta_1} + \dot{\theta_2}\right) \sin{\left (\theta_1 + \theta_2 \right )}\right) \left(\dot{\theta_1} + \dot{\theta_2}\right) \cos{\left (\theta_1 + \theta_2 \right )} - 2 r_{2} \left(l_{1} \cos{\left (\theta_1 \right )} \dot{\theta_1} + r_{2} \left(\dot{\theta_1} + \dot{\theta_2}\right) \cos{\left (\theta_1 + \theta_2 \right )}\right) \left(\dot{\theta_1} + \dot{\theta_2}\right) \sin{\left (\theta_1 + \theta_2 \right )} + 2 r_{2} \left(- l_{1} \sin{\left (\theta_1 \right )} \dot{\theta_1}^{2} + l_{1} \cos{\left (\theta_1 \right )} \ddot{\theta_1} - r_{2} \left(\dot{\theta_1} + \dot{\theta_2}\right)^{2} \sin{\left (\theta_1 + \theta_2 \right )} + r_{2} \left(\ddot{\theta_1} + \ddot{\theta_2}\right) \cos{\left (\theta_1 + \theta_2 \right )}\right) \cos{\left (\theta_1 + \theta_2 \right )} - 2 r_{2} \left(- l_{1} \sin{\left (\theta_1 \right )} \ddot{\theta_1} - l_{1} \cos{\left (\theta_1 \right )} \dot{\theta_1}^{2} - r_{2} \left(\dot{\theta_1} + \dot{\theta_2}\right)^{2} \cos{\left (\theta_1 + \theta_2 \right )} - r_{2} \left(\ddot{\theta_1} + \ddot{\theta_2}\right) \sin{\left (\theta_1 + \theta_2 \right )}\right) \sin{\left (\theta_1 + \theta_2 \right )}\right)\\
+=& \frac{I_{1}}{2} \dot{\theta_1}^{2} + \frac{I_{2}}{2} \dot{\theta_2}^{2} + \frac{m_{1} r_{1}^{2}}{2} \dot{\theta_1}^{2} + \frac{m_{2}}{2} \left(l_{1}^{2} \dot{\theta_1}^{2} + 2 l_{1} r_{2} \cos{\left (\theta_2 \right )} \dot{\theta_1}^{2} + 2 l_{1} r_{2} \cos{\left (\theta_2 \right )} \dot{\theta_1} \dot{\theta_2} + r_{2}^{2} \dot{\theta_1}^{2} + 2 r_{2}^{2} \dot{\theta_1} \dot{\theta_2} + r_{2}^{2} \dot{\theta_2}^{2}\right) & \\
 \end{flalign}
 
 \begin{flalign}
-    U &= m_1gl_1\sin(\theta_1) + m_2g(l_1\sin(\theta_1)+l_2\sin(\theta_1+\theta_2)) & \\
-    &= m_1gl_1\sin(\theta_1) + m_2gl_1\sin(\theta_1)+m_2gl_2\sin(\theta_1+\theta_2) & \\
-    &= (m_1+m_2)gl_1\sin(\theta_1)+m_2gl_2\sin(\theta_1+\theta_2) &
+U =& m_1gl_1\sin(\theta_1) + m_2g(l_1\sin(\theta_1)+l_2\sin(\theta_1+\theta_2)) & \\
+=& g \left(l_{1} m_{1} \sin{\left (\theta_1 \right )} + m_{2} \left(l_{1} \sin{\left (\theta_1 \right )} + l_{2} \sin{\left (\theta_1 + \theta_2 \right )}\right)\right) & \\
 \end{flalign}
 
 \begin{flalign}
-    L =& K -U & \\
-    =& \tfrac{1}{2}(m_1l_1^2+m_2l_2^2)\dot{\theta_1}^2 + \tfrac{1}{2}m_2l_2^2\dot{\theta_2}^2+m_2l_2^2\dot{\theta_1}\dot{\theta_2}+\tfrac{1}{2}m_2\dot{\theta_1} & \\ \nonumber
-    & -(m_1+m_2)gl_1\sin(\theta_1)-m_2gl_2\sin(\theta_1+\theta_2)
+L =& K -U & \\
+=& \frac{I_{1}}{2} \dot{\theta_1}^{2} + \frac{I_{2}}{2} \dot{\theta_2}^{2} - g l_{1} m_{1} \sin{\left (\theta_1 \right )} - g m_{2} \left(l_{1} \sin{\left (\theta_1 \right )} + l_{2} \sin{\left (\theta_1 + \theta_2 \right )}\right) + \frac{m_{1} r_{1}^{2}}{2} \dot{\theta_1}^{2} + \frac{m_{2}}{2} \left(l_{1}^{2} \dot{\theta_1}^{2} + 2 l_{1} r_{2} \cos{\left (\theta_2 \right )} \dot{\theta_1}^{2} + 2 l_{1} r_{2} \cos{\left (\theta_2 \right )} \dot{\theta_1} \dot{\theta_2} + r_{2}^{2} \dot{\theta_1}^{2} + 2 r_{2}^{2} \dot{\theta_1} \dot{\theta_2} + r_{2}^{2} \dot{\theta_2}^{2}\right) & \\
 \end{flalign}
 
 \begin{flalign}
-    \frac{\partial{L}}{\partial{\dot{\theta_1}}} =& (m_1l_1^2+m_2l_2^2)\dot{\theta_1} + m_2l_2^2\dot{\theta_2}+\tfrac{1}{2}m_2 & \\
-    \frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_1}}}\right) =& (m_1l_1^2+m_2l_2^2)\ddot{\theta_1} + m_2l_2^2\ddot{\theta_2} & \\
-    \frac{\partial{L}}{\partial{\theta_1}} =& - (m_1+m_2)gl_1\cos(\theta_1)-m_2gl_2\cos(\theta_1+\theta_2) & \\
-    \frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_1}}}\right) - \frac{\partial{L}}{\partial{\theta_1}} =& (m_1l_1^2+m_2l_2^2)\ddot{\theta_1} + m_2l_2^2\ddot{\theta_2} \\ \nonumber
-    & +(m_1+m_2)gl_1\cos(\theta_1)+m_2gl_2\cos(\theta_1+\theta_2) &
+\frac{\partial{L}}{\partial{\dot{\theta_1}}} =& I_{1} \dot{\theta_1} + m_{1} r_{1}^{2} \dot{\theta_1} + m_{2} \left(l_{1}^{2} \dot{\theta_1} + 2 l_{1} r_{2} \cos{\left (\theta_2 \right )} \dot{\theta_1} + l_{1} r_{2} \cos{\left (\theta_2 \right )} \dot{\theta_2} + r_{2}^{2} \dot{\theta_1} + r_{2}^{2} \dot{\theta_2}\right) & \\
+\frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_1}}}\right) =& I_{1} \ddot{\theta_1} + m_{1} r_{1}^{2} \ddot{\theta_1} + m_{2} \left(l_{1}^{2} \ddot{\theta_1} - 2 l_{1} r_{2} \sin{\left (\theta_2 \right )} \dot{\theta_1} \dot{\theta_2} - l_{1} r_{2} \sin{\left (\theta_2 \right )} \dot{\theta_2}^{2} + 2 l_{1} r_{2} \cos{\left (\theta_2 \right )} \ddot{\theta_1} + l_{1} r_{2} \cos{\left (\theta_2 \right )} \ddot{\theta_2} + r_{2}^{2} \ddot{\theta_1} + r_{2}^{2} \ddot{\theta_2}\right) & \\
+\frac{\partial{L}}{\partial{\theta_1}} =& - g \left(l_{1} m_{1} \cos{\left (\theta_1 \right )} + l_{1} m_{2} \cos{\left (\theta_1 \right )} + l_{2} m_{2} \cos{\left (\theta_1 + \theta_2 \right )}\right) & \\
+\frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_1}}}\right) - \frac{\partial{L}}{\partial{\theta_1}} =& I_{1} \ddot{\theta_1} + g \left(l_{1} m_{1} \cos{\left (\theta_1 \right )} + l_{1} m_{2} \cos{\left (\theta_1 \right )} + l_{2} m_{2} \cos{\left (\theta_1 + \theta_2 \right )}\right) + m_{1} r_{1}^{2} \ddot{\theta_1} + m_{2} \left(l_{1}^{2} \ddot{\theta_1} - 2 l_{1} r_{2} \sin{\left (\theta_2 \right )} \dot{\theta_1} \dot{\theta_2} - l_{1} r_{2} \sin{\left (\theta_2 \right )} \dot{\theta_2}^{2} + 2 l_{1} r_{2} \cos{\left (\theta_2 \right )} \ddot{\theta_1} + l_{1} r_{2} \cos{\left (\theta_2 \right )} \ddot{\theta_2} + r_{2}^{2} \ddot{\theta_1} + r_{2}^{2} \ddot{\theta_2}\right) & \\
+\frac{\partial{L}}{\partial{\dot{\theta_2}}} =& I_{2} \dot{\theta_2} + m_{2} r_{2} \left(l_{1} \cos{\left (\theta_2 \right )} \dot{\theta_1} + r_{2} \dot{\theta_1} + r_{2} \dot{\theta_2}\right) & \\
+\frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_2}}}\right) =& I_{2} \ddot{\theta_2} + m_{2} r_{2} \left(- l_{1} \sin{\left (\theta_2 \right )} \dot{\theta_1} \dot{\theta_2} + l_{1} \cos{\left (\theta_2 \right )} \ddot{\theta_1} + r_{2} \ddot{\theta_1} + r_{2} \ddot{\theta_2}\right) & \\
+\frac{\partial{L}}{\partial{\theta_2}} =& - m_{2} \left(g l_{2} \cos{\left (\theta_1 + \theta_2 \right )} + l_{1} r_{2} \left(\dot{\theta_1} + \dot{\theta_2}\right) \sin{\left (\theta_2 \right )} \dot{\theta_1}\right) & \\
+\frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_2}}}\right) - \frac{\partial{L}}{\partial{\theta_2}} =& I_{2} \ddot{\theta_2} + g l_{2} m_{2} \cos{\left (\theta_1 + \theta_2 \right )} + l_{1} m_{2} r_{2} \sin{\left (\theta_2 \right )} \dot{\theta_1}^{2} + l_{1} m_{2} r_{2} \cos{\left (\theta_2 \right )} \ddot{\theta_1} + m_{2} r_{2}^{2} \ddot{\theta_1} + m_{2} r_{2}^{2} \ddot{\theta_2} & \\
 \end{flalign}
 
 \begin{flalign}
-    \frac{\partial{L}}{\partial{\dot{\theta_2}}} =& m_2l_2^2\dot{\theta}_2 + m_2l_2^2\dot{\theta_1} & \\
-    \frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_2}}}\right) =& m_2l_2^2\ddot{\theta}_2 + m_2l_2^2\ddot{\theta_1} & \\
-    \frac{\partial{L}}{\partial{\theta_2}} =& -m_2gl_2\cos(\theta_1+\theta_2) & \\
-    \frac{d}{dt}\left(\frac{\partial{L}}{\partial{\dot{\theta_2}}}\right) - \frac{\partial{L}}{\partial{\theta_2}} =& m_2l_2^2\ddot{\theta}_2 + m_2l_2^2\ddot{\theta_1} + m_2gl_2\cos(\theta_1+\theta_2) &
+=& I_{1} \ddot{\theta_1} - b_{1} \dot{\theta_1} - f_{1} + g l_{1} m_{1} \cos{\left (\theta_1 \right )} + g l_{1} m_{2} \cos{\left (\theta_1 \right )} + g l_{2} m_{2} \cos{\left (\theta_1 + \theta_2 \right )} + l_{1}^{2} m_{2} \ddot{\theta_1} - 2 l_{1} m_{2} r_{2} \sin{\left (\theta_2 \right )} \dot{\theta_1} \dot{\theta_2} - l_{1} m_{2} r_{2} \sin{\left (\theta_2 \right )} \dot{\theta_2}^{2} + 2 l_{1} m_{2} r_{2} \cos{\left (\theta_2 \right )} \ddot{\theta_1} + l_{1} m_{2} r_{2} \cos{\left (\theta_2 \right )} \ddot{\theta_2} + m_{1} r_{1}^{2} \ddot{\theta_1} + m_{2} r_{2}^{2} \ddot{\theta_1} + m_{2} r_{2}^{2} \ddot{\theta_2} & \\
 \end{flalign}
-
-\[
-  \begin{bmatrix}
-    (m_1l_1^2+m_2l_2^2) & m_2l_2^2\\
-    m_2l_2^2 & m_2l_2^2
-  \end{bmatrix}
-  \begin{bmatrix}
-    \ddot{\theta_1} \\
-    \ddot{\theta_2} \\
-  \end{bmatrix}
-  =
-  \begin{bmatrix}
-    - (m_1+m_2)gl_1\cos(\theta_1)+m_2gl_2\cos(\theta_1+\theta_2) \\
-    - m_2gl_2\cos(\theta_1+\theta_2) \\
-  \end{bmatrix}
-\]
 
 \end{document}
