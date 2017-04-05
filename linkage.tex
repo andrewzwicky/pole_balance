@@ -1,9 +1,12 @@
-\documentclass{article}
+\documentclass[varwidth]{standalone}
+
 \usepackage{tikz}
+\usepackage{tcolorbox}
 
 \begin{document}
 \usetikzlibrary{shapes.misc, positioning, calc, arrows}
 
+\begin{tcolorbox}\centering
 \begin{tikzpicture}
 
 \tikzstyle{state} = [draw, circle, minimum size=0.5cm]
@@ -15,11 +18,10 @@
 \tikzstyle{dimension} = [draw,<->,>=stealth',semithick]
 \tikzstyle{anglespec} = [->,>=stealth',semithick]
 
-
 \def\la{7}
 \def\ta{30}
 \def\lb{7}
-\def\tb{65}
+\def\tb{60}
 \def\linkpad{0.6}
 \def\arcdist{2.5}
 \def\extdist{6}
@@ -28,7 +30,7 @@
 \def\cornerround{17pt}
 \def\axissize{2}
 \def\comsize{0.2}
-\def\pivotsize{0.3}
+\def\pivotsize{0.4}
 
 \coordinate[] (O) at (0,0);
 \coordinate[] (L1) at ({\la*cos(\ta)},{\la*sin(\ta)});
@@ -46,8 +48,6 @@
         \draw[dimension] (0,0) -- (\la/2-\comsize,0) node[midway, fill=white] {$r_1$};
         \draw[-] (0,0) -- (0,\loffset+\leaderext);
         \draw[-] (\la,0) -- (\la,\loffset+\leaderext);
-        %\draw [connection] (\la/2+\comsize,0) -- (\la,0);
-
     \end{scope}
     \draw [extension] (O) -- (\extdist,0);
     \draw [anglespec] (\arcdist,0) arc (0:\ta:\arcdist) node[midway, fill=white] {$\theta_1$};
@@ -70,7 +70,6 @@
         \draw[dimension] (0,0) -- (\lb/2-\comsize,0) node[midway, fill=white] {$r_2$};
         \draw[-] (0,0) -- (0,\loffset+\leaderext);
         \draw[-] (\lb,0) -- (\lb,\loffset+\leaderext);
-        %\draw [connection] (\lb/2+\comsize,0) -- (\lb,0);
     \end{scope}
     \begin{scope}[rotate=\ta]
         \draw [extension] (0,0) -- (\extdist,0);
@@ -93,5 +92,6 @@
 \draw (L2) circle (\pivotsize);
 
 \end{tikzpicture}
+\end{tcolorbox}
 
 \end{document}
