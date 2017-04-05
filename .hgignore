@@ -3,3 +3,4 @@ syntax: glob
 *.aux
 *.log
 *.json
+.ipynb_checkpoints/**
