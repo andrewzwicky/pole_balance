@@ -1,4 +1,4 @@
-\documentclass[varwidth]{standalone}
+\documentclass[tikz]{standalone}
 
 \usepackage{tikz}
 \usepackage{tcolorbox}
@@ -6,7 +6,6 @@
 \begin{document}
 \usetikzlibrary{shapes.misc, positioning, calc, arrows}
 
-\begin{tcolorbox}\centering
 \begin{tikzpicture}
 
 \tikzstyle{state} = [draw, circle, minimum size=0.5cm]
@@ -17,13 +16,14 @@
 \tikzstyle{extension} = [draw,-,very thin, dashed]
 \tikzstyle{dimension} = [draw,<->,>=stealth',semithick]
 \tikzstyle{anglespec} = [->,>=stealth',semithick]
+\tikzstyle{force} = [->,>=stealth',thick]
 
-\def\la{7}
+\def\la{9}
 \def\ta{30}
-\def\lb{7}
-\def\tb{60}
+\def\lb{9}
+\def\tb{55}
 \def\linkpad{0.6}
-\def\arcdist{2.5}
+\def\arcdist{3}
 \def\extdist{6}
 \def\loffset{1.2}
 \def\leaderext{0.2}
@@ -31,6 +31,7 @@
 \def\axissize{2}
 \def\comsize{0.2}
 \def\pivotsize{0.4}
+\def\gravdist{1.5}
 
 \coordinate[] (O) at (0,0);
 \coordinate[] (L1) at ({\la*cos(\ta)},{\la*sin(\ta)});
@@ -44,13 +45,13 @@
 \begin{scope}[shift={(O)}]
     \begin{scope}[rotate=\ta]
         \draw[rounded corners=\cornerround] (-\linkpad,-\linkpad) rectangle ++({\la + 2*\linkpad},2*\linkpad);
-        \draw[dimension] (0,\loffset) -- (\la,\loffset) node[midway, fill=white] {$l_1$};
-        \draw[dimension] (0,0) -- (\la/2-\comsize,0) node[midway, fill=white] {$r_1$};
+        \draw[dimension] (0,\loffset) -- (\la,\loffset) node[midway, fill=white] {$l_0$};
+        \draw[dimension] (0,0) -- (\la/2-\comsize,0) node[midway, fill=white] {$r_0$};
         \draw[-] (0,0) -- (0,\loffset+\leaderext);
         \draw[-] (\la,0) -- (\la,\loffset+\leaderext);
     \end{scope}
     \draw [extension] (O) -- (\extdist,0);
-    \draw [anglespec] (\arcdist,0) arc (0:\ta:\arcdist) node[midway, fill=white] {$\theta_1$};
+    \draw [anglespec] (\arcdist,0) arc (0:\ta:\arcdist) node[midway, fill=white] {$\theta_0$};
 \end{scope}
 
 \begin{scope}[shift={(R1)}]
@@ -61,19 +62,20 @@
         \filldraw[fill=white, draw=white, rotate=-270, opacity=1]  (0,0) -- (\comsize,0) arc (0:90:\comsize) -- (0,0);
         \draw (0,0) circle (\comsize);
     \end{scope}
+    \draw [force] (0,-\comsize) -- (0,-\gravdist) node[right] {$m_0g$};
 \end{scope}
 
 \begin{scope}[shift={(L1)}]
     \begin{scope}[rotate=\tb]
         \draw[rounded corners=\cornerround] (-\linkpad,-\linkpad) rectangle ++({\lb + 2*\linkpad},2*\linkpad);
-        \draw[dimension] (0,\loffset) -- (\lb,\loffset) node[midway, fill=white] {$l_2$};
-        \draw[dimension] (0,0) -- (\lb/2-\comsize,0) node[midway, fill=white] {$r_2$};
+        \draw[dimension] (0,\loffset) -- (\lb,\loffset) node[midway, fill=white] {$l_1$};
+        \draw[dimension] (0,0) -- (\lb/2-\comsize,0) node[midway, fill=white] {$r_1$};
         \draw[-] (0,0) -- (0,\loffset+\leaderext);
         \draw[-] (\lb,0) -- (\lb,\loffset+\leaderext);
     \end{scope}
     \begin{scope}[rotate=\ta]
         \draw [extension] (0,0) -- (\extdist,0);
-        \draw [anglespec] (\arcdist,0) arc (0:\tb-\ta:\arcdist) node[midway, fill=white] {$\theta_2$};
+        \draw [anglespec] (\arcdist,0) arc (0:\tb-\ta:\arcdist) node[midway, fill=white] {$\theta_1$};
     \end{scope}
 \end{scope}
 
@@ -85,6 +87,7 @@
         \filldraw[fill=white, draw=white, rotate=-270, opacity=1]  (0,0) -- (\comsize,0) arc (0:90:\comsize) -- (0,0);
         \draw (0,0) circle (\comsize);
     \end{scope}
+    \draw [force] (0,-\comsize) -- (0,-\gravdist) node[right] {$m_1g$};
 \end{scope}
 
 \draw (O) circle (\pivotsize);
@@ -92,6 +95,5 @@
 \draw (L2) circle (\pivotsize);
 
 \end{tikzpicture}
-\end{tcolorbox}
 
 \end{document}
