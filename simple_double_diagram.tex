@@ -2,8 +2,11 @@
 
 \usepackage{tikz}
 \usepackage{tcolorbox}
+\usepackage{pagecolor}
 
 \begin{document}
+
+\pagecolor{white}
 \usetikzlibrary{shapes.misc, positioning, calc, arrows}
 
 \begin{tikzpicture}
@@ -17,6 +20,7 @@
 \tikzstyle{dimension} = [draw,<->,>=stealth',semithick]
 \tikzstyle{anglespec} = [->,>=stealth',semithick]
 \tikzstyle{force} = [->,>=stealth',thick]
+\tikzstyle{callout} = [->,>=stealth',thick]
 
 \def\la{9}
 \def\ta{30}
@@ -63,6 +67,7 @@
         \draw (0,0) circle (\comsize);
     \end{scope}
     \draw [force] (0,-\comsize) -- (0,-\gravdist) node[right] {$m_0g$};
+    \draw[callout] (3,0) -- (\comsize,0) node[pos=0, fill=white] {$x_0, y_0$};
 \end{scope}
 
 \begin{scope}[shift={(L1)}]
@@ -88,7 +93,9 @@
         \draw (0,0) circle (\comsize);
     \end{scope}
     \draw [force] (0,-\comsize) -- (0,-\gravdist) node[right] {$m_1g$};
+    \draw[callout] (2,0) -- (\comsize,0) node[pos=0, fill=white] {$x_1, y_1$};
 \end{scope}
+
 
 \draw (O) circle (\pivotsize);
 \draw (L1) circle (\pivotsize);
