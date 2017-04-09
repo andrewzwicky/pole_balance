@@ -5,6 +5,7 @@ import scipy.integrate as integrate
 from matplotlib import pyplot as plt
 from matplotlib import animation, rc
 from itertools import chain
+from IPython.display import HTML, display, Math
 
 rc('animation', html='html5')
 
@@ -93,7 +94,7 @@ def generate_double_pendulum_odes():
     def double_pendulum_position(pos):
         result = []
 
-        for theta0, _, theta1, _ in pos:
+        for _, theta0, _, theta1 in pos:
             x1_pos = float(l_val[0]) * np.cos(theta0)
             y1_pos = float(l_val[0]) * np.sin(theta0)
 
@@ -108,10 +109,11 @@ def generate_double_pendulum_odes():
 
 
 def generic_deriv_handler(this_state, _, deriv_functions):
-    result = [(this_state[(i * 2) + 1], float(func(*this_state))) for i, func in enumerate(deriv_functions)]
+    # x_dot, x pairs
+    result = [(float(func(*this_state)), this_state[(i * 2)]) for i, func in enumerate(deriv_functions)]
 
     flattened = chain.from_iterable(result)
-    float_flattened = list(map(float,flattened))
+    float_flattened = list(map(float, flattened))
 
     return np.array(float_flattened)
 
@@ -149,5 +151,5 @@ def animate_system(time, time_step, initial_conditions, derivation_functions, po
     return animation.FuncAnimation(fig, animate, frames=len(pos), interval=25, blit=True, init_func=init)
 
 
-ani = animate_system(5, 0.05, [0, 0, 0, 0], *generate_double_pendulum_odes())
+ani = animate_system(5, 0.05, [0, 90, 0, 90], *generate_double_pendulum_odes())
 plt.show()
